@@ -1,0 +1,31 @@
+Create React UI for SHASN (indian political strategy board game) mainly targetting mobile.
+HomePage:
+* the word "SHASN" with a short tag line in the middle.
+* 2 buttons below which says "draw ideology card from Gemini", "draw ideology card from GPT"
+* clicking these buttons -> makes api call (based on gemini/gpt) -> takes us to next page
+
+CardPage:
+* The card should be covering majority part in the UI.
+* There are total 4 persona (THE IDEALIST, THE CAPITALIST, THE SHOWSTOPPER, THE SUPREMO) and 4 type of resources (TRUST-YELLOW, FUNDS-GREEN, MEDIA-BLUE, CLOUT-RED)
+* each card has two sides (yes and no part with statement and persona). And for each persona -> 3 resources will be there. (2 resource of same kind/color; 1 random) 
+* card has top part->question; middle part->yes/no with statement; next 3 resources (2 of same kind, one random); bottom-> the ideology persona
+* a button below which says flip the card -> which flips the other side of the card
+
+SideMenu:
+* a menu option to choose one among following options: Deck by GPT, Deck by Gemini, Generate your own card.
+* Deck by GPT -> Homepage.
+* Deck by Gemini -> Homepage. 
+* Generate your own card -> Generation Page.
+
+GenerationPage:
+* has a input box saying enter keywords/subject areas to generate relevant questions
+* questions brutality level (a slider to determine the value on a scale of 1-10)
+* a button saying "generate" -> do nothing (will cover later)
+
+
+Design aspects:
+* Should be responsive in all type of screens.
+* Main target is mobile phone UI.
+* Dont be too flashy
+* Elegant design
+* Cool animations

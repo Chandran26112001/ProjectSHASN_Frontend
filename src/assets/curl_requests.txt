@@ -1,0 +1,37 @@
+curl --request GET \
+  --url 'http://localhost:8080/random?deck=gemini' \
+  --header 'User-Agent: insomnia/12.2.0'
+RESPONSE:
+{
+	"_id": 24,
+	"caution": "single",
+	"deck": "gemini",
+	"no": {
+		"persona": "THE IDEALIST",
+		"statement": "No. The state shouldn't dictate the size of my family dinner."
+	},
+	"question": "Should India enforce a strict two-child policy?",
+	"yes": {
+		"persona": "THE CAPITALIST",
+		"statement": "Yes. We are bursting at the seams. Quality over quantity."
+	}
+}
+-------------
+curl --request GET \
+  --url 'http://localhost:8080/next?deck=gemini&current_id=24' \
+  --header 'User-Agent: insomnia/12.2.0'
+RESPONSE:
+{
+	"_id": 25,
+	"caution": "none",
+	"deck": "gemini",
+	"no": {
+		"persona": "THE IDEALIST",
+		"statement": "No. We are humans, not batteries for the corporate machine."
+	},
+	"question": "Should 70-hour work weeks be normalized for young professionals?",
+	"yes": {
+		"persona": "THE CAPITALIST",
+		"statement": "Yes. Sleep is for the weak. Nation-building requires sweat."
+	}
+}

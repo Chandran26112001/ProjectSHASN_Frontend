@@ -1,0 +1,22 @@
+You are a senior React UI engineer and product designer.
+
+Build a complex React dashboard UI with:
+- React 18 + TypeScript
+- Tailwind CSS
+- Framer Motion animations
+
+Design goals:
+- Ancient board game vibes aesthetic, but at the same time elegant and not too much decorations.
+- Clear hierarchy
+- Smooth micro-interactions
+- Subtle but premium motion
+
+Animations:
+- Staggered entrance on page load
+- Hover lift effects
+- Smooth transitions (no jank)
+
+Deliver:
+- Clean component structure
+- Full code (no pseudo-code)
+- Production-ready quality
