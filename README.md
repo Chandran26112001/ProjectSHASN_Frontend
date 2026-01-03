@@ -1,73 +1,98 @@
-# React + TypeScript + Vite
+# SHASN Frontend
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A React-based interactive card game frontend for exploring ideology personas and resources. Built with React, TypeScript, Vite, Tailwind CSS, and Framer Motion for smooth animations.
 
-Currently, two official plugins are available:
+## Overview
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+SHASN is an engaging application featuring dynamic ideology cards with four distinct personas:
+- **THE IDEALIST** (gains TRUST)
+- **THE CAPITALIST** (gains FUNDS)
+- **THE SHOWSTOPPER** (gains MEDIA)
+- **THE SUPREMO** (gains CLOUT)
 
-## React Compiler
+Players draw cards from different decks (Gemini or GPT-powered) and make choices that affect their resource accumulation.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## Features
 
-## Expanding the ESLint configuration
+- **Home Page**: Browse and draw cards from multiple decks
+- **Card Page**: Interactive flip cards showing different persona perspectives with resource tracking
+- **Generation Page**: Create custom ideology cards (in development)
+- **Side Menu Navigation**: Easy navigation between pages
+- **Responsive Design**: Beautiful dark theme with gold accents
+- **Smooth Animations**: Powered by Framer Motion for engaging transitions
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+## Project Structure
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
-
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```
+src/
+├── pages/
+│   ├── HomePage.tsx       # Main card selection and drawing interface
+│   ├── CardPage.tsx       # Interactive card display with persona choices
+│   └── GenerationPage.tsx # Custom card generation (WIP)
+├── components/
+│   ├── GameCard.tsx       # Reusable card component
+│   └── SideMenu.tsx       # Navigation menu
+├── api/
+│   └── api.ts             # Backend API integration
+├── types/
+│   └── index.ts           # TypeScript type definitions
+├── App.tsx                # Main application component
+└── main.tsx               # React entry point
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+## Technology Stack
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+- **React 19**: UI framework
+- **TypeScript**: Type-safe development
+- **Vite**: Fast development server and build tool
+- **Tailwind CSS 4**: Utility-first styling
+- **Framer Motion**: Animation library
+- **React Router v7**: Client-side navigation
+- **ESLint**: Code quality
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+## Installation
+
+```bash
+npm install
 ```
+
+## Development
+
+```bash
+npm run dev
+```
+
+Starts the development server with hot module replacement (HMR).
+
+## Build
+
+```bash
+npm run build
+```
+
+Compiles TypeScript and builds the project for production.
+
+## Scripts
+
+- `npm run dev` - Start development server
+- `npm run build` - Build for production
+- `npm run lint` - Run ESLint
+- `npm run preview` - Preview production build
+
+## API Integration
+
+The frontend connects to a backend API for fetching cards:
+- **Get Random Card**: `GET /random?deck={gemini|gpt}`
+- **Get Next Card**: `GET /next?deck={gemini|gpt}&current_id={id}`
+
+Ensure the backend server is running before using card-fetching features.
+
+## Card Structure
+
+Each card contains:
+- `_id`: Unique identifier
+- `question`: The scenario or question
+- `caution`: Important context
+- `yes`: Persona and statement for yes choice
+- `no`: Persona and statement for no choice
+- `deck`: Source deck (gemini or gpt)
